@@ -1,0 +1,36 @@
+=== Polymorphism: one call, different loan periods ===
+Clean Code -> 14 days
+Effective Java -> 14 days
+Head First Java -> 14 days
+The Matrix -> 7 days
+Inception -> 7 days
+
+=== Borrowing ===
+Clean Code -> Tariro, borrowed 2026-10-01, due 2026-10-15
+The Matrix -> Tariro, borrowed 2026-10-01, due 2026-10-08
+Effective Java -> Tariro, borrowed 2026-10-01, due 2026-10-15
+
+=== Edge case: member limit (3 loans) ===
+Refused: Member M001 already has the maximum of 3 loans
+
+=== Edge case: item already on loan ===
+Refused: Item B001 (Clean Code) is already on loan
+
+=== Edge case: unknown id ===
+Refused: No member with id M999
+
+=== Overdue items on 2026-10-20 ===
+The Matrix -> Tariro, borrowed 2026-10-01, due 2026-10-08 (12 days overdue)
+Clean Code -> Tariro, borrowed 2026-10-01, due 2026-10-15 (5 days overdue)
+Effective Java -> Tariro, borrowed 2026-10-01, due 2026-10-15 (5 days overdue)
+
+=== Returning a DVD, then searching by title ===
+The Matrix -> Tariro, borrowed 2026-10-01, due 2026-10-08, returned 2026-10-20
+[B002] BOOK "Effective Java" - 14-day loan, on loan, by Joshua Bloch
+[B003] BOOK "Head First Java" - 14-day loan, available, by Kathy Sierra
+
+=== Persistence: save, then reload into a new Library ===
+Reloaded 5 items, 2 members, 3 loans
+B001 available after reload? false
+D001 available after reload? true
+Tariro's active loans after reload: 2

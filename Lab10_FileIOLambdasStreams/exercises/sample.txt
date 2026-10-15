@@ -1,0 +1,4 @@
+Object oriented programming
+organises software around objects.
+
+Each object has state and behaviour.
