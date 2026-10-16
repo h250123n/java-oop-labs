@@ -1,15 +1,12 @@
-// Program 6.2: interfaces, default methods and multiple implementation
 interface Payable {
-    double MAX_LIMIT = 10_000;              // implicitly public static final
+    double MAX_LIMIT = 10_000;
 
-    void pay(double amount);                // implicitly public abstract
+    void pay(double amount);
 
-    // EXPLAIN: default method gives implementations for free; classes may override it
     default void receipt(double amount) {
         System.out.println("Receipt: paid " + amount);
     }
 
-    // EXPLAIN: static utility method belongs to the interface itself
     static boolean withinLimit(double amount) {
         return amount <= MAX_LIMIT;
     }
@@ -19,7 +16,6 @@ interface Loggable {
     void log(String message);
 }
 
-// EXPLAIN: one class, several interfaces -> multiple inheritance of TYPE
 class CardPayment implements Payable, Loggable {
     @Override
     public void pay(double amount) {
@@ -32,7 +28,7 @@ class CardPayment implements Payable, Loggable {
     }
 
     @Override
-    public void log(String message) {           // interface methods must be public
+    public void log(String message) {
         System.out.println("[LOG] " + message);
     }
 }
@@ -44,14 +40,13 @@ class CashPayment implements Payable {
     }
 
     @Override
-    public void receipt(double amount) {        // overriding the default
+    public void receipt(double amount) {
         System.out.println("Handwritten receipt for " + amount);
     }
 }
 
 public class InterfaceDemo {
     public static void main(String[] args) {
-        // EXPLAIN: program to the interface: the variable type is Payable
         Payable[] methods = { new CardPayment(), new CashPayment() };
 
         for (Payable p : methods) {

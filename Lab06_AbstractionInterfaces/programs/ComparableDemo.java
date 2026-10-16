@@ -1,4 +1,3 @@
-// Program 6.3: Comparable, an interface from the Java library
 import java.util.Arrays;
 
 class Player implements Comparable<Player> {
@@ -7,7 +6,6 @@ class Player implements Comparable<Player> {
 
     Player(String name, int score) { this.name = name; this.score = score; }
 
-    // EXPLAIN: defines the natural ordering: highest score first
     @Override
     public int compareTo(Player other) {
         return Integer.compare(other.score, this.score);
@@ -22,7 +20,7 @@ public class ComparableDemo {
         Player[] players = {
             new Player("Anesu", 70), new Player("Blessing", 95), new Player("Chenai", 82)
         };
-        Arrays.sort(players);          // sort relies only on the Comparable contract
+        Arrays.sort(players);
         System.out.println(Arrays.toString(players));
     }
 }
